@@ -35,3 +35,34 @@
 
 ### 17. Letter Combinations of a Phone Number 
 	dfs
+
+### 18. 4Sum 
+	i = 0, j = i + 1, 其他和求三个数和一样
+
+### 19. Remove Nth Node From End of List 
+	遍历两遍，第一次遍历时保存前指针就好
+
+### 20. Valid Parentheses 
+	...
+
+### 21. Merge Two Sorted Lists 
+	... 
+
+### 22. Generate Parentheses 
+	从生成最内层括号开始考虑，dfs
+
+### 23. Merge k Sorted Lists 
+	使用小顶堆，将各个结点依次放入堆中，每次从堆中取出一个结点插入到链表中，python的优先队列需要自己构造，
+比较麻烦，以后用到堆的题目还是用c++好
+
+### 24. Swap Nodes in Pairs 
+	链表题都是一个套路
+
+### 25. Reverse Nodes in k-Group 
+	注意指针操作吧
+
+### 26. Remove Duplicates from Sorted Array 
+	k纪录不重复序列的最后位置，i位置表示新的不重复元素	，j用于跳过重复元素
+
+
+
