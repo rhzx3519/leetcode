@@ -63,6 +63,61 @@
 
 ### 26. Remove Duplicates from Sorted Array 
 	k纪录不重复序列的最后位置，i位置表示新的不重复元素	，j用于跳过重复元素
+	[原题](https://leetcode.com/problems/remove-element/#/description)
 
+### 27. Remove Element
+	跟上一题差不多
 
+### 28. Implement strStr() 
+	暴力搜索 O(n^2)的时间复杂度
 
+### 29. Divide Two Integers 
+	除数每次左移一位，知道比被除数大为止，结果就是除数增大的倍数
+
+### 30. Substring with Concatenation of All Words 
+	统计words中每个单词出现的次数，遍历s，截取字符串看看是否符合哈希的值
+
+### 31. Next Permutation 
+	从后往前寻找第一个比后面元素小的位置，交换，后面排序(python 这个不能部分排序啊, 真麻烦，list当入参时只能在原地址上修改，重新赋上新的地址是无效的)
+
+### 32. Longest Valid Parentheses 
+	这题参考了晚上的代码，用一个字典存储‘（’出现的位置，key是‘（’的个数，当碰到‘）’时，如果存在对应cnt的值，则删除该键值对，cnt--, 如果不存在对应cnt的值，设置对应的键值，否则更新最长值
+
+### 33. Search in Rotated Sorted Array 
+	现寻找旋转位置，再用二分查找
+
+### 34. Search for a Range 
+	二分查找
+
+### 35. Search Insert Position 
+	二分
+
+### 36. Valid Sudoku 
+	python这只能用while循环啊
+
+### 37. Sudoku Solver 
+	回溯查找，标记填过的格子，递归终止的条件是所有的空格子都填充完毕
+	特别技巧：
+	1. 使用^=标记某行或者某列出现过的数字,
+	 row[i] ^= 1<<d-1, 
+	 if row[i]&1<<d-1 == True :
+	 	d数字在i行出现过
+	2. ns = sqrt(n), 使用block[i/ns*ns + j/ns] 标记各个block出现过的数字
+	3. pos = [], 存储空格子的位置, 坐标转换为i*n+j, 当pos为空时，递归终止
+
+### 38. Count and Say 
+	递归做呗
+
+### 39. Combination Sum 
+	dfs，递归终止条件是遍历完所有元素
+
+### 40. Combination Sum II 
+	dfs, 注意跳过相同的元素
+
+### 41. First Missing Positive 
+	将正数放到对应的位置上就行, 正常的样子应该是[1,2,3,4,5],
+	遍历时发现nums[i] != i + 1时，交换nums[i]和nums[nums[i]-1]
+
+### 42. Trapping Rain Water 
+	设置左右指针l、r，如果l位置的高度较低，则判断l右侧的高度，如果高度下降，则代表能容纳水，l指针右移，
+	知道遇到高度和l位置高度相等或大于时停止，此时重新判断l、r位置高度； 右侧同理
