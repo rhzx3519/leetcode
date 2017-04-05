@@ -144,8 +144,59 @@
 ### 50. Pow(x, n) 
 	递归做，求pow(x, n/2), 注意判断n是否溢出
 
+### 51.N-Queens
+	使用一维数组A[N]存储row行上的皇后位置col,即A[row]=col，数组元素的初始值是INT_MIN。按行搜索每一列上可能摆放的位置,如果A[i] == col || |A[i]-col| == |i-row| || A[row]!=INT_MIN, 则表明位置row,col所在的行、列或者斜线上有皇后，不可摆放，否则设置A[row]=i，继续搜索下一行。
+
+### 52. N-Queens II
+	将上面的构造结果的部分改为统计数量就行
+
+### 53. Maximum Subarray
+	遍历一遍
+
+### 54. Spiral Matrix
+	设置4个指针li,lj,hi,hj代表当次循环的4个边界，依次遍历上右下左，注意遍历下左的时候要判断li!=hi和lj!=hj，去除重复遍历的情况。
+
+### 55. Jump Game
+	注意保存状态，new_pos保存了当前能走的最大距离需要和i+nums[i]取一个最大值.
+
+### 56. Merge Intervals
+	首先需要按照interval的start大小从小到大排序数组，之后遍历数组，分别比较前一个interval和后一个interval，
+	1）如果前一个interval完全覆盖后一个interval，则删除后一个interval，数组大小减1
+	2）如果前一个interval和后一个interval有重叠位置，则更新前一个interval的end，删除后一个interval，数组大小减1
+	3）否则前一个interval和后一个interval没有交集，继续遍历下一个。
 
 
+### 57. Insert Interval
+	一次遍历，考虑三种情况
+	1) 首先如果newInterval的end比intervals[i]的start小，说明后的intervals都不会有和newInterval有交集了，跳出循环
+	2）如果newInterval的start比intervals[i]的end大，跳过
+	3）剩下的情况就是newInterval和当前intervals[i]有交集，更新newInterval的start和end，重叠数量加1
+	最后删除重叠的interval，插入newInterval
 
+### 58. Length of Last Word
+	...
 
+### 59. Spiral Matrix II
+	和54题一样，遍历的同时插入数字到二维数组当中
 
+### 60. Permutation Sequence
+	给定一个数n，以1开头的排列共有(n-1)!种，同理以2、3...9开头的排列各有(n-1)种，如果k的值小于等于
+	(n-1)!，那个头一个数字就是1，如果k的值大于(n-1)!，那么头个数字就是(k-1)/(n-1)! + 1。
+	求完第一个数字之后，k%=(n-1)!, 第二个数字的值就是(k-1)/(n-2)! + 1,
+	重复上述步骤，依次求得个位数字
+	注意:
+	1) 构造排列数从最高位开始，当选出一个数字后，就应当把这个数字erase掉，防止后面又出现
+
+### 61. Rotate List
+	链表题注意指针
+
+### 62. Unique Paths
+	dp题，状态转移方程是:dp[i][j]表示到坐标(i,j)的路径数目, 它的状态由它左方和上方格子的路径数目决定
+	dp[i][j] = dp[i-1][j] + dp[i][j-1]
+	注意初始状态设置，首行与首列的所有格子路径都是惟一的。
+
+### 63. Unique Paths II
+	和上题一样，不同的是初始化状态时，碰到格子有障碍就停止，计算dp{i][j]时要判断(i,j)位置是否有障碍
+
+### 64. Minimum Path Sum
+	dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])

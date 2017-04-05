@@ -19,4 +19,5 @@ class Solution(object):
             nums[i], nums[begin] = nums[begin], nums[i]
             i += 1
     
-        
+s = Solution()
+print s.permute([1,2,3])   
