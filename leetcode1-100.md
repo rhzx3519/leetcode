@@ -200,3 +200,130 @@
 
 ### 64. Minimum Path Sum
 	dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])
+
+### 65. Valid Number
+	遍历字符串，注意多种情况吧
+
+### 66. Plus One
+	...
+	
+### 67. Add Binary
+	O(m+n)
+
+### 68. Text Justification
+	遇到长度超过就生成字符串，注意最后一行不是平均分隔，而是空一格
+
+### 69. Sqrt(x)
+	二分查找
+
+### 70. Climbing Stairs
+	第n级台阶的走法可以通过第n-1级台阶走1步或者第n-2级台阶走两步得到，d(n) = d(n-1) + d(n-2)
+
+### 71. Simplify Path
+	使用栈
+
+### 72. Edit Distance
+	dp[i][j]表示word1的前i个字符改为word2的前j个字符所需要的最少操作数
+	if (c1 == c2)
+		dp[i][j] = dp[i-1][j-1];
+	else
+		dp[i][j] = min(dp[i-1][j-1], min(dp[i-1][j], dp[i][j-1])) + 1;	
+
+### 73. Set Matrix Zeroes
+	时间复杂度O(mn),空间复杂度O(m+n)
+
+### 74. Search a 2D Matrix
+	二分查找
+
+### 75. Sort Colors
+	类似快排的单次遍历
+
+### 76. Minimum Window Substring
+	做法就是双指针的贪心做法，找到以i结尾的最小子串满足条件。min_len和left，right分别记录最小子串的最小值和左右位置。data存T串的信息，now存当前i到j的信息，保存的是元素的个数。
+	num记录增加的元素个数是否达到条件。
+
+### 77. Combinations
+	dfs
+
+### 78. Subsets
+	dfs
+
+### 79. Word Search
+	回溯查找，在每一个位置dfs
+
+### 80. Remove Duplicates from Sorted Array II
+	跟26题差不多
+
+### 81. Search in Rotated Sorted Array II
+	先查找分割点，然后用二分查找
+
+### 82. Remove Duplicates from Sorted List II
+	略复杂，注意指针操作吧
+
+### 83. Remove Duplicates from Sorted List
+	设置前置指针，遍历链表
+
+### 84. Largest Rectangle in Histogram
+	记录当前位置向左向右延伸的最大距离
+
+### 85. Maximal Rectangle
+	将每一行看成直方图的底，上面1的数量看成直方图的高，就可以转化为84题的求法了。
+
+### 86. Partition List
+	分成两个链表之后再合并
+
+### 87. Scramble String
+	递归判断, 不用搞成二叉树
+
+### 88. Merge Sorted Array
+	从后往前插入
+
+### 89. Gray Code
+	第一步：产生 0, 1 两个字符串。
+	第二步：在第一步的基础上，每一个字符串都加上0和1，但是每次只能加一个，所以得做两次。这样就变成了 00,01,11,10 （注意对称）。
+	第三步：在第二步的基础上，再给每个字符串都加上0和1，同样，每次只能加一个，这样就变成了 000,001,011,010,110,111,101,100。
+	好了，这样就把3位元格雷码生成好了。
+	如果要生成4位元格雷码，我们只需要在3位元格雷码上再加一层0,1就可以了： 0000,0001,0011,0010,0110,0111,0101,0100,1100,1101,1110,1010,0111,1001,1000.
+	也就是说，n位元格雷码是基于n-1位元格雷码产生的。
+
+### 90. Subsets II
+	可以发现从S=[1,2]变化到S=[1,2,2]时，多出来的有两个子集[2,2]和[1,2,2]，这两个子集，其实就是 [2], [1,2]末尾都加上2 而产生。而[2], [1,2] 这两个子集实际上是 S=[1,2]的解到 S=[1]的解 新添加的部分。
+	因此，若S中有重复元素，可以先排序；遍历过程中如果发现当前元素S[i] 和 S[i-1] 相同，那么不同于原有思路中“将当前res中所有自己拷贝一份再在末尾添加S[i]”的做法，我们只将res中上一次添加进来的子集拷贝一份，末尾添加S[i]。
+
+### 91. Decode Ways
+	带条件的斐波那契数列,dp[i]表示前i个字符的编码数量，如果s[i]在1到26之间，dp[i] += dp[i-1], 如果s[i]和s[i-1]组成的数字在1到26之间，那么dp[i] += dp[i-2]
+
+### 92. Reverse Linked List II
+	将要反转的结点存到另一个链表中，最后合并
+
+### 93. Restore IP Addresses
+	dfs
+
+### 94. Binary Tree Inorder Traversal
+	...
+
+### 95. Unique Binary Search Trees II
+	dfs
+
+### 96. Unique Binary Search Trees
+	这道题要求可行的二叉查找树的数量，其实二叉查找树可以任意取根，只要满足中序遍历有序的要求就可以。从处理子问题的角度来看，选取一个结点为根，就把结点 切成左右子树，以这个结点为根的可行二叉树数量就是左右子树可行二叉树数量的乘积，所以总的数量是将以所有结点为根的可行结果累加起来。
+	dp[i] = sigma{dp[j-1]*dp[i-j]}. 1<=j<=i
+	dp[i]表示节点数为i的二叉排序树有多少种不同的生成方式。
+
+### 97. Interleaving String
+	res[i][j] 代表s1中前i个字符与s2中前j个字母是否可以交叉匹配成为s3中前i+j个字符。
+	公式为：
+	if s3[i + j] = s1[i] = s2[j]. res[i][j] = res[i - 1][j] || res[i][j - 1]
+	if s3[i + j] = s1[i] res[i][j] = res[i - 1][j]
+	if s3[i + j] = s2[j] res[i][j] = res[i][j - 1]
+	else s3[i + j] = false;
+	初始条件是res[0][0] = true. 即s1前0个字符加s2前0个字符，可以拼凑成s3前0个字符。
+
+### 98. Validate Binary Search Tree
+	dfs
+
+### 99. Recover Binary Search Tree
+	中序遍历，可以用递归和非递归的方法
+
+### 100. Same Tree
+	dfs
