@@ -74,3 +74,124 @@
 
 ### 334. Increasing Triplet Subsequence
 	使用a1,a2分别记录三元组的前两个递增元素
+
+### 337. House Robber III
+	dfs，每个结点都有两种状态，一种是rob当前结点，另一种是不rob当前结点。
+
+### 338. Counting Bits
+	没想到这题也是个dp题，可以推出以下递归公式
+	dp[i] = dp[i>>1] + (i&1)
+
+### 341. Flatten Nested List Iterator
+	使用栈，从后向前遍历将所有元素入栈
+
+### 342. Power of Four
+	...
+
+### 343. Integer Break
+	dp, dp[n]表示分成至少两个整数的乘积的最大值。有递推公式dp[n] = i*max(n-i, dp[n-i])  2<=i <=n;
+
+### 344. Reverse String
+	...
+
+### 345. Reverse Vowels of a String
+	...
+
+### 347. Top K Frequent Elements
+	priority_queue<pair<int, int>> pq 默认按照pair的first排列的大顶堆
+
+### 349. Intersection of Two Arrays
+	这题有点奇怪
+
+### 350. Intersection of Two Arrays II
+	...
+
+### 355. Design Twitter
+	主要是数据结构的设计
+
+### 357. Count Numbers with Unique Digits
+	数学题
+
+### 365. Water and Jug Problem
+	看看x、y的最大公约数是否能被z整除
+
+### 367. Valid Perfect Square
+	r = (r + x/r)/2, 可以通过其他方法求开方
+
+### 368. Largest Divisible Subset
+	这道题给了我们一个数组，让我们求这样一个子集合，集合中的任意两个数相互取余均为0，而且提示中说明了要使用DP来解。那么我们考虑，较小数对较大数取余一定为0，那么问题就变成了看较大数能不能整除这个较小数。那么如果数组是无序的，处理起来就比较麻烦，所以我们首先可以先给数组排序，这样我们每次就只要看后面的数字能否整除前面的数字。定义一个动态数组dp，其中dp[i]表示到数字nums[i]位置最大可整除的子集合的长度，还需要一个一维数组parent，来保存上一个能整除的数字的位置，两个整型变量mx和mx_idx分别表示最大子集合的长度和起始数字的位置，我们可以从后往前遍历数组，对于某个数字再遍历到末尾，在这个过程中，如果nums[j]能整除nums[i], 且dp[i] < dp[j] + 1的话，更新dp[i]和parent[i]，如果dp[i]大于mx了，还要更新mx和mx_idx，最后循环结束后，我们来填res数字，根据parent数组来找到每一个数字
+
+### 371. Sum of Two Integers
+	a^b求和，(a&b)>>1求进位
+
+### 372. Super Pow
+	数学题
+	a^1234567 % k = (a^1234560 % k) * (a^7 % k) % k = (a^123456 % k)^10 % k * (a^7 % k) % k
+	f(a,1234567) = f(a, 1234560) * f(a, 7) % k = f(f(a, 123456),10) * f(a,7)%k;
+
+### 373. Find K Pairs with Smallest Sums
+	无脑优先队列，注意构造的时候需要传入一个重载了小括号运算符的结构体作为参数。
+
+### 374. Guess Number Higher or Lower
+	二分
+
+### 375. Guess Number Higher or Lower II
+	记忆化搜索+dp
+	For each number x in range[i~j]
+	we do: result_when_pick_x = x + max{DP([i~x-1]), DP([x+1, j])}
+	--> // the max means whenever you choose a number, the feedback is always bad and therefore leads you to a worse branch.
+	then we get DP([i~j]) = min{xi, ... ,xj}
+	--> // this min makes sure that you are minimizing your cost.
+
+### 376. Wiggle Subsequence
+	贪心
+
+### 377. Combination Sum IV
+	dp+记忆化搜索 dp[i]表示和为i的组合数目
+
+### 378. Kth Smallest Element in a Sorted Matrix
+	二分
+
+### 380. Insert Delete GetRandom O(1)
+	vector + unordered_map
+
+### 381. Insert Delete GetRandom O(1) - Duplicates allowed
+	同样用vector<pair<int, int>> + unordered_map<int, vector<int>>，此题中vector存储val和val在map中的位置, map存储val和val在vector中的位置
+
+### 382. Linked List Random Node
+	这里用到了著名了水塘抽样的思路，由于限定了head一定存在，所以我们先让返回值res等于head的节点值，然后让cur指向head的下一个节点，定义一个变量i，初始化为2，若cur不为空我们开始循环，我们在[0, i - 1]中取一个随机数，如果取出来0，那么我们更新res为当前的cur的节点值，然后此时i自增一，cur指向其下一个位置，这里其实相当于我们维护了一个大小为1的水塘，然后我们随机数生成为0的话，我们交换水塘中的值和当前遍历到底值，这样可以保证每个数字的概率相等
+	水塘算法伪代码如下：
+	//stream代表数据流  
+	//reservoir代表返回长度为k的池塘  
+	  
+	//从stream中取前k个放入reservoir；  
+	for ( int i = 1; i < k; i++)  
+	    reservoir[i] = stream[i];  
+	for (i = k; stream != null; i++) {  
+	    p = random(0, i);  
+	    if (p < k) reservoir[p] = stream[i];  
+	return reservoir;  
+
+### 383. Ransom Note
+	...
+
+### 384. Shuffle an Array
+	like insert sort
+
+### 385. Mini Parser
+	top-down parser
+
+### 386. Lexicographical Numbers
+	有点怪
+
+### 387. First Unique Character in a String
+	...
+
+### 388. Longest Absolute File Path
+	...
+
+### 389. Find the Difference
+	...
+
+### 390. Elimination Game
+	数学题

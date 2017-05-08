@@ -1,3 +1,15 @@
+### 1. Two Sum
+	...
+
+### 2. Add Two Numbers
+	...
+
+### 3. Longest Substring Without Repeating Characters
+	...
+
+### 4. Median of Two Sorted Arrays
+	二分
+
 ### 5. Longest Palindromic Substring
 	这里使用menecher方法，就是动态规划，首先在原先的字符串之间插入'#, 这样可以统一处理奇数串和偶数串, 
 使用两个变量纪录状态, far_pos表示最长回文字符串的最大边界距离，ci表示最长回文字符串的中心位置, 状态数据dp[i]
