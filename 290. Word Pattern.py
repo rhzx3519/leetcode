@@ -24,4 +24,4 @@ class Solution(object):
         return True
         
 s = Solution()
-print s.wordPattern("abc", "b c a")
+print(s.wordPattern("abc", "b c a"))

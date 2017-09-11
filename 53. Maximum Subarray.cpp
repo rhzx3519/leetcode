@@ -10,7 +10,6 @@ public:
             
             res = max(res, sum);
         }
-        
         return res;
     }
 };

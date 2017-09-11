@@ -23,6 +23,6 @@ class Solution(object):
         nums.sort()
 
 s = Solution()
-nums = [1,3,2]
+nums = [3,2,1]
 s.nextPermutation(nums)
-print nums
+print(nums)

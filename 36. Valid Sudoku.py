@@ -66,4 +66,4 @@ class Solution(object):
         
 board = [".87654321","2........","3........","4........","5........","6........","7........","8........","9........"]
 s = Solution()
-print s.isValidSudoku(board)        
+print(s.isValidSudoku(board))

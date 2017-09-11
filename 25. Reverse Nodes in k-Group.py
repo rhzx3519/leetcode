@@ -53,6 +53,6 @@ l1.next = ListNode(2)
 l1.next.next = ListNode(3)
 s = Solution()
 p = s.reverseKGroup(l1, 1)
-print p.val, p.next.val, p.next.next.val
+print(p.val, p.next.val, p.next.next.val)
 
         

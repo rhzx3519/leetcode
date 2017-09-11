@@ -27,6 +27,5 @@ private:
         
         if (root->left != NULL)
             dfs(root->left, depth + 1, res);
-        
     }
 };

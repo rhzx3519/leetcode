@@ -23,10 +23,10 @@ class Solution(object):
                     mp[cnt] = i
                 else:
                     res = max(res, i - mp[cnt])
-            print i, mp
+            print(i, mp)
             i += 1
 
         return res
 
 s = Solution()
-print s.longestValidParentheses('()')         
+print(s.longestValidParentheses('()'))         
