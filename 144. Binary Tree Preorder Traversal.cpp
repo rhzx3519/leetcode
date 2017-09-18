@@ -11,13 +11,21 @@ class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
         vector<int> res;
-        if (!root) return res;
+        dfs(root, res);
         
+        return res;
+    }
+    
+    void iterate(TreeNode* root, vector<int>& res)
+    {
+        if (!root) return;
         stack<TreeNode*> st;
         TreeNode* p = root;
         
-        while (true) {
-            while (p) {
+        while (true)
+        {
+            while (p)
+            {
                 res.push_back(p->val);
                 st.push(p);
                 p = p->left;
@@ -26,7 +34,13 @@ public:
             p = st.top()->right;
             st.pop();
         }
-        
-        return res;
+    }
+    
+    void dfs(TreeNode* root, vector<int>& res)
+    {
+        if (!root) return;
+        res.push_back(root->val);
+        dfs(root->left, res);
+        dfs(root->right, res);
     }
 };
