@@ -20,4 +20,4 @@ class Solution(object):
         return res
 
 s = Solution()
-print s.jump([2,3,1,1,4])       
+print(s.jump([2,3,1,1,4]))       

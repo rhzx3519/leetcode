@@ -10,25 +10,26 @@
 class Solution {
 public:
     vector<Interval> merge(vector<Interval>& intervals) {
-        int i =0, size = intervals.size();
+        vector<Interval> res;
+        vector<Interval>& a= intervals;
+        int n = a.size();
         
-        sort(intervals.begin(), intervals.end(), comp);
-        while (i < size - 1) {
-            if (intervals[i].start <= intervals[i+1].start && intervals[i].end >= intervals[i+1].end) {
-                intervals.erase(intervals.begin() + i + 1);
-                size--;
+        sort(a.begin(), a.end(), [&](const Interval& a, const Interval& b){
+            return a.start < b.start;    
+        });
+        
+        for (int i = 0; i < n - 1;)
+        {
+            if (a[i].end >= a[i+1].start)
+            {
+                a[i].start = min(a[i].start, a[i+1].start);
+                a[i].end = max(a[i].end, a[i+1].end);
+                a.erase(a.begin()+i+1);
+                n--;
             }
-            else if (intervals[i].end >= intervals[i+1].start && intervals[i].end < intervals[i+1].end) {
-                intervals[i].end = intervals[i+1].end;
-                intervals.erase(intervals.begin() + i + 1);
-                size--;
-            }else
+            else
                 i++;
         }
-        return intervals;
-    }
-    
-    static bool comp(const Interval &ele1, const Interval &ele2) {
-        return ele1.start < ele2.start;
+        return a;
     }
 };

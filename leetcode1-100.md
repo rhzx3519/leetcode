@@ -11,10 +11,13 @@
 	二分
 
 ### 5. Longest Palindromic Substring
-	这里使用menecher方法，就是动态规划，首先在原先的字符串之间插入'#, 这样可以统一处理奇数串和偶数串, 
+	1. 这里使用menecher方法，就是动态规划，首先在原先的字符串之间插入'#, 这样可以统一处理奇数串和偶数串, 
 使用两个变量纪录状态, far_pos表示最长回文字符串的最大边界距离，ci表示最长回文字符串的中心位置, 状态数据dp[i]
 表示i位置的回文串半径 j = min(far_pos - i + 1, dp[2*ci-i])
+	2. 使用中心扩展
 
+### 6.6. ZigZag Conversion
+	每行用一个string存储
 
 ### 8. String to Integer (atoi)
 	字符串前置空格先去除，然后考虑＋－号，之后考虑字符是否合法，最后考虑int越界的问题
