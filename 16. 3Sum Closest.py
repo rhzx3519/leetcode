@@ -27,7 +27,7 @@ class Solution(object):
                 if val > target:
                     h -= 1
                     continue
-                while l < ln - 1 and nums[l] == nums[l+1]:
+                while l < h and nums[l] == nums[l+1]:
                     l += 1
                 
                 l += 1
@@ -38,4 +38,4 @@ class Solution(object):
         return res
         
 s = Solution()
-print s.threeSumClosest([-1,2,1,-4], 1)        
+print(s.threeSumClosest([-1,2,1,-4], 1))        

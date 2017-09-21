@@ -25,7 +25,7 @@ class Solution(object):
                     res.append([nums[i], nums[j], nums[l], nums[h]])
                     while l < h-1 and nums[l] == nums[l+1]:
                         l += 1
-                    l += 1
+                    l += 24
 
                 while j < ln - 1 and nums[j] == nums[j+1]:
                     j += 1
@@ -36,4 +36,4 @@ class Solution(object):
         return res
 
 s = Solution()
-print s.fourSum([-3,-1,0,2,4,5], 0)
+print(s.fourSum([-3,-1,0,2,4,5], 0))

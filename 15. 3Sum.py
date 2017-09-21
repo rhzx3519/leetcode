@@ -33,4 +33,4 @@ class Solution(object):
         return res
 
 s = Solution()
-print s.threeSum([0,0,0,0])
+print(s.threeSum([0,0,0,0]))

@@ -14,4 +14,3 @@ public:
         return f2;
     }
 };
-    binding_constraint->setDirection(USVector(-bind->getDirection()[0], bind->getDirection()[1], 0));

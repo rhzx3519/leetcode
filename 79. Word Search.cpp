@@ -23,7 +23,7 @@ public:
         }
         
         if (i >= 0 && j >= 0 && i <board.size() && j < board[i].size() && visit[i][j] == 0 && board[i][j] == word[cur]) {
-            visit[i][j] = 1;
+            // visit[i][j] = 1;
             int x, y;
             for (int k = 0; k < 4; k++) {
                 x = i + dx[k];
@@ -31,7 +31,7 @@ public:
                 if (dfs(cur+1, board, word, visit, x, y))
                     return true;
             }
-            visit[i][j] = 0;
+            // visit[i][j] = 0;
         }
         return false;
     }
