@@ -30,6 +30,7 @@
 class Solution {
 public:
     NestedInteger deserialize(string s) {
+<<<<<<< HEAD
         int n = s.size();
         int idx = 0;
         char ch = s[0];
@@ -37,6 +38,16 @@ public:
             return parse_list(s, idx);
         else
             return parse_int(s, idx);
+=======
+        int idx = 0;
+        char ch = s[idx];
+        while (idx < s.size()) {
+            if (ch == '[')
+                return parse_list(s, idx);
+            else
+                return parse_number(s, idx);
+        }
+>>>>>>> 837bde34d06bb470ffcea088785f591f742870d7
     }
 
 private:

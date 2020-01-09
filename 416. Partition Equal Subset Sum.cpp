@@ -52,6 +52,7 @@ public:
     	}
     	return (!(sum&1)) && (bs[sum>>1]);
     }
+<<<<<<< HEAD
 
     bool canPartition(vector<int>& nums) {
         sort(nums.begin(), nums.end());
@@ -71,4 +72,6 @@ public:
 
         return dp[sum>>1]==1;
     }    
+=======
+>>>>>>> 837bde34d06bb470ffcea088785f591f742870d7
 };

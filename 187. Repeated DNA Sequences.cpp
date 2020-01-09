@@ -16,6 +16,7 @@ public:
         
         return res;
     }
+<<<<<<< HEAD
 };
 
 // 简单版本，使用hash判断是否重复
@@ -36,4 +37,6 @@ public:
         }
         return res;
     }
+=======
+>>>>>>> 837bde34d06bb470ffcea088785f591f742870d7
 };

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     bool isAdditiveNumber(string num) {
@@ -28,3 +29,26 @@ public:
 };
 
 // path中存储了当前所有的切片，每当path的size > 3，判断末尾三位是否符合累加数
+=======
+class Solution(object):
+    def isAdditiveNumber(self, num):
+        """
+        :type num: str
+        :rtype: bool
+        """
+        n = len(num)
+        for i, j in itertools.combinations(range(1, n), 2):
+            a, b = num[:i], num[i:j]
+            if a != str(int(a)) or b != str(int(b)):
+                continue
+            while j < n:
+                c = str(int(a) + int(b))
+                if num.startswith(c, j):
+                    j += len(c)
+                    a, b = b, c
+                else:
+                    break
+            if j == n:
+                return True
+        return False
+>>>>>>> 837bde34d06bb470ffcea088785f591f742870d7

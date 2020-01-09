@@ -10,6 +10,7 @@ public:
         y2 = max(y1, y2);
         return (C - A) * (D - B) + (G - E) * (H - F) - (x2 - x1) * (y2 - y1);
     }
+<<<<<<< HEAD
 };
 
 
@@ -34,4 +35,6 @@ public:
 
 		return long(C - A)*long(D - B) + long(G - E)*long(H - F) - x * y;
 	}
+=======
+>>>>>>> 837bde34d06bb470ffcea088785f591f742870d7
 };
