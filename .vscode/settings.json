@@ -4,6 +4,8 @@
         "list": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "xiosbase": "cpp",
+        "xhash": "cpp"
     }
 }
