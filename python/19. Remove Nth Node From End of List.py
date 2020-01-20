@@ -33,3 +33,35 @@ class Solution(object):
         del t
         
         return head
+
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+        """
+        mp = {}
+        cnt = 0
+        p = head
+        while p:
+            mp[cnt] = p
+            cnt += 1
+            p = p.next
+
+        idx = cnt-n
+        if idx==0:
+            return head.next
+        if idx==cnt-1:
+            mp[idx-1].next = None
+            return head
+        mp[idx-1].next = mp[idx].next
+        return head
+                

@@ -53,5 +53,62 @@ class Solution(object):
             tail.next = None
         return head
 
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+from Queue import PriorityQueue
+
+class Comparable(object):
+
+    def __init__(self, node):
+        self.node = node
+    
+    def __cmp__(self, other):
+        if self.node.val < other.node.val:
+            return -1
+        elif self.node.val == other.node.val:
+            return 0
+        else:
+            return 1
+
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        que = PriorityQueue()
+        for node in [i for i in lists if i]:
+            que.put(Comparable(node))
+
+        head = tail = None
+        while que.qsize()>0:
+            p = que.get().node
+            if head is None:
+                head = p
+                tail = p
+            else:
+                tail.next = p
+                tail = p
+            if p.next:
+                que.put(Comparable(p.next))
+
+        return head
+
+
+
+
+
+
+
+
+
+
+
+
     
         
