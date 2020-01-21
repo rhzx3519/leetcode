@@ -5,32 +5,24 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         """
+        sorted(candidates)
+        
         res = []
-        a = candidates
-        self.dfs(a, 0, target, [], 0, res)
+        def dfs(idx, cur, a):
+            if idx >= len(candidates):
+                if cur==target:
+                    res.append(a)      
+                return
+          
+            k = 0
+            while cur+k*candidates[idx] <= target:
+                dfs(idx+1, cur+k*candidates[idx], a + k*[candidates[idx]])
+                k += 1
+                
+        a = []
+        dfs(0, 0, a)
         return res
-        
-    def dfs(self, a, idx, target, nums, sum, res):
-        if idx == len(a):
-            if sum == target:
-                t = nums[:]
-                res.append(t)
-            return
-        
-        i = 0
-        while sum + a[idx]*i <= target:
-            j = 0
-            while j < i:
-                nums.append(a[idx])
-                j += 1
-            self.dfs(a, idx + 1, target, nums, sum + a[idx]*i, res)
-            
-            j = 0
-            while j < i:
-                nums.pop()
-                j += 1
-            
-            i += 1
+
         
         
 s = Solution()
