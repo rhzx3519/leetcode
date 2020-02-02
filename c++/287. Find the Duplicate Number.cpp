@@ -19,6 +19,7 @@ public:
 
 // 重复数字就是环的入口， 将题目转换为求链表环的入口
 =======
+
         int n = nums.size();
         if (n <= 1) return -1;
         int slow = nums[0], fast = nums[nums[0]];

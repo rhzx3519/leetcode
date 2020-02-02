@@ -22,4 +22,5 @@ public:
 
 
 // dp[i][j] 表示玩家在数组 i 到 j 区间内游戏能赢对方的最大值（i <= j）。当 i==j 时，dp[i][j] 显然等于 nums[i]。
-// 当 i != j 时，若先手取左端 nums[i]，后手则为 dp[i+1][j] ，若先手取右端 nums[j]，后手则为dp[i][j-1]，故状态转移方程为 dp[i][j] = max(nums[i] - dp[i-1][j], nums[j] - dp[i][j-1])。
+// 当 i != j 时，若先手取左端 nums[i]，后手则为 dp[i+1][j] ，若先手取右端 nums[j]，后手则为dp[i][j-1]，
+// 故状态转移方程为 dp[i][j] = max(nums[i] - dp[i-1][j], nums[j] - dp[i][j-1])。

@@ -20,4 +20,4 @@ class Solution(object):
             i += 1
     
 s = Solution()
-print s.permute([1,2,3])   
+print s.permute([1,1,2])   
