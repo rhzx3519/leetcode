@@ -3,7 +3,6 @@
 
 
 def merge(a, l, r):
-    pass
     mid = l + (r-l)/2
     b = [0]*(r-l+1)
     i = l

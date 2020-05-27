@@ -111,3 +111,12 @@ private:
     vector<vector<bool>> visit;
     
 };
+
+// 思路： 字典树 + 回溯查找，先将words中的单词构造成一颗字典树，深度遍历的时候可以
+// 根据字典树来剪枝，每次dfs的深度不会超过字典树的高度
+// k 为words的单词数目，D为单词平均长度
+// time: O(M*N*logK), space(K*D)
+
+
+
+
