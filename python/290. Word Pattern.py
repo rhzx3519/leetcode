@@ -5,22 +5,13 @@ class Solution(object):
         :type str: str
         :rtype: bool
         """
-        um1, um2 = {}, {}
-        words = str.split()
-        if len(words) != len(pattern):
-            return False;
-        i = 0
-        n = len(words)
-        while i < n:
-            if um1.get(pattern[i]) == None and um2.get(words[i]) == None:
-                um1[pattern[i]] = words[i]
-                um2[words[i]] = pattern[i]
-            elif um1.get(pattern[i]) == None or um2.get(words[i]) == None:
+        a = str.split(' ')
+        n = len(a)
+        if n != len(pattern):
+            return False
+        for i in range(n):
+            if pattern.index(pattern[i]) != a.index(a[i]):
                 return False
-            elif um1[pattern[i]] != words[i] or um2[words[i]] != pattern[i]:
-                return False
-            i += 1
-        
         return True
         
 s = Solution()

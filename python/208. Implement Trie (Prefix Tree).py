@@ -83,8 +83,8 @@ if __name__ == '__main__':
     print trie.startsWith("helloa"); # 返回 true
     print trie.startsWith("hello"); # 返回 true
 
-["Trie","insert","search","search","search","startsWith","startsWith","startsWith"]
-[[],["hello"],["hell"],["helloa"],["hello"],["hell"],["helloa"],["hello"]]
+# ["Trie","insert","search","search","search","startsWith","startsWith","startsWith"]
+# [[],["hello"],["hell"],["helloa"],["hello"],["hell"],["helloa"],["hello"]]
 
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()

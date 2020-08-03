@@ -6,20 +6,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        if len(nums)<2:
-            return True
-        i = pos = new_pos = 0
-        while True:
-            new_pos = pos    
-            while i <= pos:
-                new_pos = max(new_pos, i + nums[i])
-                i += 1
-
-            if new_pos==pos:
+        max_dis = 0 # 记录下标为i时，到达的最大距离
+        for i in range(len(nums)):
+            if i > max_dis:
                 return False
-
-            pos = new_pos
-            if pos >= len(nums) - 1:
+            max_dis = max(max_dis, i + nums[i])
+            if max_dis >= len(nums)-1:
                 return True
+        return True
 
-        return False
+# 思路：贪心

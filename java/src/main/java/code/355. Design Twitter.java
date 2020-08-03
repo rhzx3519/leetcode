@@ -1,3 +1,10 @@
+package code;
+
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Set;
+
 class Twitter {
 
     private static int timeStamp = 0;
@@ -70,16 +77,21 @@ class Twitter {
         PriorityQueue<Tweet> pq = new PriorityQueue<>(users.size(), (a, b)->(b.time - a.time));
         for (int followeeId: user.followed) {
             Tweet twt = userMap.get(followeeId).head;
-            if (twt==null) continue;
+            if (twt==null) {
+                continue;
+            }
             pq.add(twt);
         }
 
         List<Integer> res = new ArrayList<>();
         while (!pq.isEmpty()) {
-            if (res.size()==10) break;
+            if (res.size()==10) {
+                break;
+            }
             Tweet twt = pq.poll();
-            if (twt.next!=null)
+            if (twt.next!=null) {
                 pq.add(twt.next);
+            }
             res.add(twt.id);
         }
         return res;

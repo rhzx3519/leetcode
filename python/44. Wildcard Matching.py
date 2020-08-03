@@ -1,3 +1,7 @@
+#!usr/bin/env python  
+#-*- coding:utf-8 _*-  
+
+
 class Solution(object):
     def isMatch(self, s, p):
         """
@@ -48,3 +52,53 @@ class Solution(object):
 
 # 如有错误，还请指出！谢谢。
 # */        
+
+    def isMatch1(self, s, p):
+        """
+        :type s: str
+        :type p: str
+        :rtype: bool
+        """
+        mem = {}
+        def dp(i, j):
+            if (i, j) in mem:
+                return mem[(i, j)]
+
+            if j==len(p):
+                return i==len(s)
+            first = i<len(s) and p[j] in (s[i], '?')
+            if p[j]=='*':
+                ans = (i<len(s)-1 and dp(i+1, j)) or dp(i, j+1) or dp(i+1, j+1)
+            else:
+                ans = first and dp(i+1, j+1)
+            mem[(i, j)] = ans
+            return ans
+
+        return dp(0, 0)
+
+if __name__ == '__main__':
+    s = ""
+    p = "*"
+    su = Solution()
+    print su.isMatch1(s, p)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
