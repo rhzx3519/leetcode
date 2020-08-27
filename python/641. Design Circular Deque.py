@@ -5,10 +5,10 @@ class MyCircularDeque(object):
         Initialize your data structure here. Set the size of the deque to be k.
         :type k: int
         """
+        self.que = [0]*(k+1)
+        self.start = 0      # start指向队头
+        self.end = 0        # end 指向队尾的后一个位置
         self.capacity = k+1
-        self.que = [0]*self.capacity
-        self.start = 0
-        self.end = 0
         
 
     def insertFront(self, value):
@@ -19,12 +19,12 @@ class MyCircularDeque(object):
         """
         if self.isFull():
             return False
-        self.que[self.start] = value
+
         newStart = (self.start - 1) % self.capacity
         if newStart < 0:
             newStart += self.capacity
         self.start = newStart
-
+        self.que[self.start] = value
         return True 
         
         
@@ -38,7 +38,7 @@ class MyCircularDeque(object):
         if self.isFull():
             return False
         self.que[self.end] = value
-        newEnd = (self.end + 1) % self.capacity
+        newEnd = (self.end + 1) % self.capacity   
         self.end = newEnd
         return True
         
@@ -85,8 +85,10 @@ class MyCircularDeque(object):
         """
         if self.isEmpty():
             return -1
-        print self.que
-        return self.que[self.end]
+        prev = (self.end - 1)%self.capacity
+        if prev < 0:
+            prev += self.capacity
+        return self.que[prev]
         
 
     def isEmpty(self):
@@ -94,7 +96,7 @@ class MyCircularDeque(object):
         Checks whether the circular deque is empty or not.
         :rtype: bool
         """
-        return self.start==self.end
+        return self.start == self.end
         
 
     def isFull(self):
@@ -102,8 +104,7 @@ class MyCircularDeque(object):
         Checks whether the circular deque is full or not.
         :rtype: bool
         """
-        return (self.end + 1) % self.capacity==self.start
-        
+        return (self.end+1) % self.capacity == self.start
 
 
 # Your MyCircularDeque object will be instantiated and called as such:

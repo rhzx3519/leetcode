@@ -24,6 +24,15 @@
 # A 的长度在 [1, 5000]之间
 # 这个问题的时间限制已经减少了。
 
-# 来源：力扣（LeetCode）
-# 链接：https://leetcode-cn.com/problems/global-and-local-inversions
-# 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+class Solution(object):
+    def isIdealPermutation(self, A):
+        """
+        :type A: List[int]
+        :rtype: bool
+        """
+        for i in range(len(A)):
+            if A[i] != i and abs(A[i]-i)>1:
+                return False
+        return True
+
+# # 审题!数列排序后就就是0,1,2.......N,刚好和下标是对应的.如果一个数和他的下标偏移量超过了1,即是和他的有序排列偏移超过了1,那么全局偏移和局部偏移必然不相等

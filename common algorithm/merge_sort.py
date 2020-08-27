@@ -1,40 +1,46 @@
 #!usr/bin/env python  
-#-*- coding:utf-8 _*-  
+#-*- coding:utf-8 _*- 
 
+# 归并排序可以求逆序数
 
-def merge(a, l, r):
-    mid = l + (r-l)/2
-    b = [0]*(r-l+1)
-    i = l
-    j = mid+1
-    k = 0
-    while i <= mid and j <= r:
-        if a[i] < a[j]:
-            b[k] = a[i]
-            i += 1
-        else:
-            b[k] = a[j]
-            j += 1
-        k += 1
+class Solution(object):
 
-    while i <= mid:
-        b[k] = a[i]
-        i += 1
-        k += 1
+    def mergeSort(self, a):
+        n = len(a)
+        self.aux = [0]*n
+        l, r = 0, n-1
+        self.inverseNum = 0
+        self.sort(a, l, r)
 
-    while j <= r:
-        b[k] = a[j]
-        j += 1
-        k += 1
-
-    i = l
-    while i <= r:
-        a[i] = b[i-l]
-        i += 1
-
-def sort(a, l , r):
-    if l < r:
+    def sort(self, a, l, r):
+        if l >= r:
+            return
         mid = l + (r-l)/2
-        sort(a, l, mid)
-        sort(a, mid+1, r)
-        merge(a, l, r)
+        self.sort(a, l, mid)
+        self.sort(a, mid+1, r)
+        self.merge(a, l, mid, r)
+
+    def merge(self, a, l, mid, r):
+        i, j = l, mid + 1
+        for k in range(l, r+1):
+            self.aux[k] = a[k]
+        for k in range(l, r+1):
+            if i > mid:
+                a[k] = self.aux[j]
+                j += 1
+            elif j > r:
+                a[k] = self.aux[i]
+                i += 1
+            elif self.aux[i] <= self.aux[j]:
+                a[k] = self.aux[i]
+                i += 1
+            else:
+                a[k] = self.aux[j]
+                j += 1
+                self.inverseNum += mid - i + 1 #  aux[i:mid+1]之间的数都比aux[j]要大
+
+if __name__ == '__main__':
+    a = [0, 1]
+    su = Solution()
+    su.mergeSort(a)
+    print a, su.inverseNum

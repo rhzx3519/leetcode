@@ -1,7 +1,7 @@
 #!usr/bin/env python  
 #-*- coding:utf-8 _*-  
 
-class g(object):
+class FenwickTree(object):
     """树状数组的下标为[1, n]"""
     def __init__(self, n):
         super(FenwickTree, self).__init__()
