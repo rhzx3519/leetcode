@@ -25,3 +25,4 @@ def bar(a):
 if __name__ == '__main__':
 	a = [1, 3, 6, 4, 5, 7, 1]
 	print bar(a)
+	print foo(a)

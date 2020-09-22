@@ -21,6 +21,27 @@ class Solution(object):
             
         return step
 
+class Solution(object):
+    def jump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        if n <= 1:
+            return 0
+        max_dis = step = reach = 0
+        for i in range(n):
+            max_dis = max(max_dis, i + nums[i])
+            if max_dis >= n-1:
+                step += 1
+                break
+            if i == reach: # 当i遍历到最远距离的时候step+1
+                step += 1
+                reach  = max_dis
+            
+        return step
+
 # Dijkstra算法的变形——将第一步第二步...第N步可以到达的节点依
 # 次放入map_arrive中。或者说是对图执行广度优先遍历（图的广度
 # 优先遍历可以找到某节点到所有节点最少步数，图的深度优先遍历可以
