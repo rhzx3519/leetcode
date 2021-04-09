@@ -7,29 +7,19 @@ class Solution(object):
         :type S: str
         :rtype: List[int]
         """
-        n = len(S)
-        lastList = [0]*26
-        for i in range(n-1, -1, -1):
-            ch = ord(S[i]) - ord('a')
-            if lastList[ch] == 0:
-                lastList[ch] = i
+        mem = {}
+        for i in range(len(S)):
+            mem[S[i]] = i
 
-        res = []
+        ans = []
         l = r = 0
-        last = 0
-        for i in range(n):
-            ch = ord(S[i]) - ord('a')
-            lastIdx = lastList[ch]
-            r = max(r, lastIdx)
-
-            if l==r:
-                res.append(r-last+1)
-                l += 1
-                r = last = l
-            else:
-                l += 1
-
-        return res
+        for i in range(len(S)):
+            r = max(r, mem[S[i]])
+            if i==r:
+                ans.append(r-l+1)
+                l = i + 1
+        return ans
+        
 
 if __name__ == '__main__':
     S = "ababcbacadefegdehijhklij"

@@ -5,19 +5,17 @@ class Solution(object):
         :type k: int
         :rtype: str
         """
-        s = []
+        st = []
         for ch in num:
-            while k!=0 and s and s[-1] > ch:
-                s.pop()
+            while k and st and st[-1] > ch:
+                st.pop()
                 k -= 1
-            if not s and ch=='0':
-                continue
-            s.append(ch)
+            st.append(ch)
         
-        while s and k!=0:
-            s.pop()
-            k -= 1
-        return ''.join(s)   
+        st = st if k<=0 else st[:-k]
+        return ''.join(st).lstrip('0') or '0'
+        
+# 思路：尽量删除逆序的数字
 
 if __name__ == '__main__':
     num = "1432219"

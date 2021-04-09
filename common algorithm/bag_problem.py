@@ -28,3 +28,15 @@ print '---------------------------'
 for i in range(n-1, -1, -1):
     for j in range(n-i, n):		
     	print (i, j)    	
+
+
+
+1. 01背包问题
+
+weights := [w1, w2, ...]
+V = N
+for _, w := range weights {
+    for i := N; i >= w; i-- {
+        dp[i] = dp[i] || dp[i-w]
+    }
+}

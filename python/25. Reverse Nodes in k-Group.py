@@ -35,6 +35,39 @@ class Solution(object):
             p.next = tmp # 连接剩下的链表
             head = tmp
         return dummy.next
+
+
+class Solution(object):
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        dummy = ListNode(0)
+        dummy.next = head
+        p = dummy
+        k = 2
+        st = []
+        while head or st:
+            if k > 0 and head:
+                k -= 1
+                st.append(head)
+                head = head.next
+                continue
+            tmp = p
+            # print st, head
+            while st:
+                node = st.pop()
+                tmp.next = node
+                tmp = tmp.next 
+            p = tmp   
+            p.next = head
+            # print p, p.next        
+            k = 2
+        # print st
+        return dummy.next
+
+
         
 l1 = ListNode(1)
 l1.next = ListNode(2)

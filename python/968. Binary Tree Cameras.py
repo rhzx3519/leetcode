@@ -11,21 +11,22 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        self.ans = 0
+        if not root:
+            return self.ans
+        
+        # 0：该节点安装了监视器 1：该节点可观，但没有安装监视器 2：该节点不可观
         def dfs(root):
             if not root:
-                return [float("inf"), 0, 0]
-            
-            la, lb, lc = dfs(root.left)
-            ra, rb, rc = dfs(root.right)
-            a = lc + rc + 1
-            b = min(a, la + rb, ra + lb)
-            c = min(a, lb + rb)
-            return [a, b, c]
-        
-        a, b, c = dfs(root)
-        return b
+                return 1
+            l, r = dfs(root.left), dfs(root.right)
+            if l==2 or r==2:
+                self.ans += 1 # 左右孩子有一个不可观测，需要在root安装监控器
+                return 0
+            elif l==0 or r==0: # 左右孩子有一个安装了监控器，root变成状态1：可观测且没有安装监控器
+                return 1
+            return 2 # root不可观测
 
-# 作者：LeetCode-Solution
-# 链接：https://leetcode-cn.com/problems/binary-tree-cameras/solution/jian-kong-er-cha-shu-by-leetcode-solution/
-# 来源：力扣（LeetCode）
-# 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+        if dfs(root)==2:
+            self.ans += 1
+        return self.ans

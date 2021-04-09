@@ -54,6 +54,45 @@ class Solution(object):
             p = vis[p[0]][p[1]]
         path.append(start)
         return path[::-1]
+
+
+    def findDFS(self, grid, start, end):
+        offset = ((1, 0), (-1, 0), (0, 1), (0, -1))
+        mem = {}
+
+        self.ans = []
+
+        def dfs(x, y, path):
+            if (x, y) in mem:
+                return mem[(x, y)]
+
+            if x==end[0] and y==end[1]:
+                if not self.ans or len(path) < len(self.ans):
+                    self.ans = path[:]
+                return 1
+
+            min_val = float('inf')
+
+            for k in range(4):
+                nx = offset[k][0] + x
+                ny = offset[k][1] + y
+                if 0<=nx<len(grid) and 0<=ny<len(grid[0]) and grid[nx][ny]==0 and not vis[nx][ny]:
+                    vis[nx][ny] = 1
+                    path.append((nx, ny))
+                    step = dfs(nx, ny, path) + 1
+                    if step < min_val:
+                        min_val = step
+                    path.pop()
+                    vis[nx][ny] = 0
+
+            mem[(x, y)] = min_val
+            return min_val
+
+        vis = [[0]*(len(grid[0])) for _ in range(len(grid))]
+        path = [start]
+        dfs(start[0], start[1], path)
+        return self.ans
+        
         
 
 if __name__ == '__main__':
@@ -65,5 +104,9 @@ if __name__ == '__main__':
     start = (0, 0)
     end = (3, 4)
     su = Solution()
-    print su.find(grid, start, end)
+    # print su.find(grid, start, end)
+    print su.findDFS(grid, start, end)
+
+
+
 
