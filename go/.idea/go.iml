@@ -3,8 +3,9 @@
   <component name="Go" enabled="true" />
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/../../../Workbench/go/algorithm" />
+    <content url="file://$MODULE_DIR$/../../../Workbench/go/gnet" />
     <content url="file://$MODULE_DIR$/../../../Workbench/go/stream" />
-    <content url="file://$USER_HOME$/go" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
