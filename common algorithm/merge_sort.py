@@ -40,7 +40,7 @@ class Solution(object):
                 self.inverseNum += mid - i + 1 #  aux[i:mid+1]之间的数都比aux[j]要大
 
 if __name__ == '__main__':
-    a = [0, 1]
+    a = [3,4,2,5,1]
     su = Solution()
     su.mergeSort(a)
     print a, su.inverseNum
