@@ -7,100 +7,113 @@ import (
 )
 
 func TestLowerBound(t *testing.T) {
-	arr := []int{1,1,4,7,10,10,50}
+	arr := []Comparable{Integer(1),Integer(1),Integer(4),Integer(7),
+		Integer(10),Integer(10),Integer(50)}
 	n := len(arr)
-	assert.Equal(t, n, LowerBound(arr, 51))
-	assert.Equal(t, 0, LowerBound(arr, -1))
-	assert.Equal(t, 0, LowerBound(arr, 1))
-	assert.Equal(t, 0, LowerBound(arr, 0))
-	assert.Equal(t, 2, LowerBound(arr, 2))
-	assert.Equal(t, 2, LowerBound(arr, 3))
-	assert.Equal(t, 2, LowerBound(arr, 4))
-	assert.Equal(t, 3, LowerBound(arr, 5))
-	assert.Equal(t, 4, LowerBound(arr, 8))
-	assert.Equal(t, 4, LowerBound(arr, 10))
-	assert.Equal(t, 6, LowerBound(arr, 11))
-	assert.Equal(t, 6, LowerBound(arr, 50))
+	assert.Equal(t, n, LowerBound(arr, Integer(51)))
+	assert.Equal(t, 0, LowerBound(arr, Integer(-1)))
+	assert.Equal(t, 0, LowerBound(arr, Integer(1)))
+	assert.Equal(t, 0, LowerBound(arr, Integer(0)))
+	assert.Equal(t, 2, LowerBound(arr, Integer(2)))
+	assert.Equal(t, 2, LowerBound(arr, Integer(3)))
+	assert.Equal(t, 2, LowerBound(arr, Integer(4)))
+	assert.Equal(t, 3, LowerBound(arr, Integer(5)))
+	assert.Equal(t, 4, LowerBound(arr, Integer(8)))
+	assert.Equal(t, 4, LowerBound(arr, Integer(10)))
+	assert.Equal(t, 6, LowerBound(arr, Integer(11)))
+	assert.Equal(t, 6, LowerBound(arr, Integer(50)))
 }
 
 func TestUpperBound(t *testing.T) {
-	arr := []int{1,1,4,7,7,7,7,10,10,50}
+	arr := []Comparable{Integer(1),Integer(1),Integer(4),Integer(7),Integer(7),Integer(7),Integer(7),Integer(10),Integer(10),Integer(50)}
 	//n := len(arr)
-	assert.Equal(t, 0, UpperBound(arr, 0))
-	assert.Equal(t, 2, UpperBound(arr, 1))
-	assert.Equal(t, 2, UpperBound(arr, 2))
-	assert.Equal(t, 3, UpperBound(arr, 4))
-	assert.Equal(t, 3, UpperBound(arr, 6))
-	assert.Equal(t, 7, UpperBound(arr, 7))
-	assert.Equal(t, 9, UpperBound(arr, 10))
-	assert.Equal(t, 9, UpperBound(arr, 49))
-	assert.Equal(t, 10, UpperBound(arr, 50))
-	assert.Equal(t, 10, UpperBound(arr, 51))
+	assert.Equal(t, 0, UpperBound(arr, Integer(0)))
+	assert.Equal(t, 2, UpperBound(arr, Integer(1)))
+	assert.Equal(t, 2, UpperBound(arr, Integer(2)))
+	assert.Equal(t, 3, UpperBound(arr, Integer(4)))
+	assert.Equal(t, 3, UpperBound(arr, Integer(6)))
+	assert.Equal(t, 7, UpperBound(arr, Integer(7)))
+	assert.Equal(t, 9, UpperBound(arr, Integer(10)))
+	assert.Equal(t, 9, UpperBound(arr, Integer(49)))
+	assert.Equal(t, 10, UpperBound(arr, Integer(50)))
+	assert.Equal(t, 10, UpperBound(arr, Integer(51)))
 }
 
 func TestInsert(t *testing.T) {
-	arr := make([]int, 0)
+	arr := make([]Comparable, 0)
 
-	Insert(&arr, LowerBound(arr, 0), 0)
-	assert.Equal(t, []int{0}, arr)
+	Insert(&arr, LowerBound(arr, Integer(0)), Integer(0))
+	assert.Equal(t, []Comparable{Integer(0)}, arr)
 
-	Insert(&arr, LowerBound(arr, 1), 1)
-	assert.Equal(t, []int{0,1}, arr)
+	Insert(&arr, LowerBound(arr, Integer(1)), Integer(1))
+	assert.Equal(t, []Comparable{Integer(0),Integer(1)}, arr)
 
-	Insert(&arr, LowerBound(arr, 1), 1)
-	assert.Equal(t, []int{0,1,1}, arr)
+	Insert(&arr, LowerBound(arr, Integer(1)), Integer(1))
+	assert.Equal(t, []Comparable{Integer(0),Integer(1),Integer(1)}, arr)
 
-	Insert(&arr, LowerBound(arr, -5), -5)
-	assert.Equal(t, []int{-5,0,1,1}, arr)
+	Insert(&arr, LowerBound(arr, Integer(-5)), Integer(-5))
+	assert.Equal(t, []Comparable{Integer(-5),Integer(0),Integer(1),Integer(1)}, arr)
 
-	Insert(&arr, LowerBound(arr, 5), 5)
-	assert.Equal(t, []int{-5,0,1,1,5}, arr)
+	Insert(&arr, LowerBound(arr, Integer(5)), Integer(5))
+	assert.Equal(t, []Comparable{Integer(-5),Integer(0),Integer(1),Integer(1),Integer(5)}, arr)
 
-	Insert(&arr, LowerBound(arr, 100), 100)
-	assert.Equal(t, []int{-5,0,1,1,5,100}, arr)
+	Insert(&arr, LowerBound(arr, Integer(100)), Integer(100))
+	assert.Equal(t, []Comparable{Integer(-5),Integer(0),Integer(1),Integer(1),Integer(5),Integer(100)}, arr)
 
-	Insert(&arr, LowerBound(arr, 5), 5)
-	assert.Equal(t, []int{-5,0,1,1,5,5,100}, arr)
+	Insert(&arr, LowerBound(arr, Integer(5)), Integer(5))
+	assert.Equal(t, []Comparable{Integer(-5),Integer(0),Integer(1),Integer(1),Integer(5),Integer(5),Integer(100)}, arr)
 
-	Insert(&arr, LowerBound(arr, 3), 3)
-	assert.Equal(t, []int{-5,0,1,1,3,5,5,100}, arr)
+	Insert(&arr, LowerBound(arr, Integer(3)), Integer(3))
+	assert.Equal(t, []Comparable{Integer(-5),Integer(0),Integer(1),Integer(1),Integer(3),Integer(5),Integer(5),Integer(100)}, arr)
 
-	Insert(&arr, LowerBound(arr, -10), -10)
-	assert.Equal(t, []int{-10,-5,0,1,1,3,5,5,100}, arr)
+	Insert(&arr, LowerBound(arr, Integer(-10)), Integer(-10))
+	assert.Equal(t, []Comparable{Integer(-10),Integer(-5),Integer(0),Integer(1),Integer(1),Integer(3),Integer(5),Integer(5),Integer(100)}, arr)
 
-	Insert(&arr, LowerBound(arr, -5), -5)
-	assert.Equal(t, []int{-10,-5,-5,0,1,1,3,5,5,100}, arr)
+	Insert(&arr, LowerBound(arr, Integer(-5)), Integer(-5))
+	assert.Equal(t, []Comparable{Integer(-10),Integer(-5),Integer(-5),Integer(0),Integer(1),Integer(1),Integer(3),Integer(5),Integer(5),Integer(100)}, arr)
+}
+
+func TestDelete(t *testing.T) {
+	arr := []Comparable{Integer(1),Integer(1),Integer(4),Integer(7),Integer(7),Integer(7),Integer(7),Integer(10),Integer(10),Integer(50)}
+
+	Delete(&arr, 0)
+	assert.Equal(t, []Comparable{Integer(1),Integer(4),Integer(7),Integer(7),Integer(7),Integer(7),Integer(10),Integer(10),Integer(50)}, arr)
+
+	Delete(&arr, 3)
+	assert.Equal(t, []Comparable{Integer(1),Integer(4),Integer(7),Integer(7),Integer(7),Integer(10),Integer(10),Integer(50)}, arr)
+
+
 }
 
 func TestFind(t *testing.T) {
-	arr := []int{1,1,4,7,7,7,7,10,10,50}
+	arr := []Comparable{Integer(1),Integer(1),Integer(4),Integer(7),Integer(7),Integer(7),Integer(7),Integer(10),Integer(10),Integer(50)}
 
-	assert.Equal(t, 0, Find(arr, 1))
-	assert.Equal(t, 2, Find(arr, 4))
-	assert.Equal(t, -1, Find(arr, 5))
-	assert.Equal(t, 3, Find(arr, 7))
-	assert.Equal(t, 7, Find(arr, 10))
-	assert.Equal(t, -1, Find(arr, 11))
-	assert.Equal(t, -1, Find(arr, 49))
-	assert.Equal(t, 9, Find(arr, 50))
-	assert.Equal(t, -1, Find(arr, 51))
+	assert.Equal(t, 0, Find(arr, Integer(1)))
+	assert.Equal(t, 2, Find(arr, Integer(4)))
+	assert.Equal(t, -1, Find(arr, Integer(5)))
+	assert.Equal(t, 3, Find(arr, Integer(7)))
+	assert.Equal(t, 7, Find(arr, Integer(10)))
+	assert.Equal(t, -1, Find(arr, Integer(11)))
+	assert.Equal(t, -1, Find(arr, Integer(49)))
+	assert.Equal(t, 9, Find(arr, Integer(50)))
+	assert.Equal(t, -1, Find(arr, Integer(51)))
 }
 
 // 维护一个有序的数组
 func ExampleInsert() {
-	arr := make([]int, 0)
+	arr := make([]Comparable, 0)
 	fmt.Println(arr)
 
-	Insert(&arr, 0, 1)
+	Insert(&arr, 0, Integer(1))
 	fmt.Println(arr)
 
-	Insert(&arr, 0,1)
+	Insert(&arr, 0,Integer(1))
 	fmt.Println(arr)
 
-	Insert(&arr, 2,3)
+	Insert(&arr, 2,Integer(3))
 	fmt.Println(arr)
 
-	Insert(&arr, 2,2)
+	Insert(&arr, 2,Integer(2))
 	fmt.Println(arr)
 
 	// Output:
@@ -112,13 +125,3 @@ func ExampleInsert() {
 
 }
 
-
-// 校验是否是非降序排列
-func check_sorted(arr []int) {
-	n := len(arr)
-	for i := 1; i < n; i++ {
-		if arr[i] < arr[i-1] {
-			panic("check sorted failed.")
-		}
-	}
-}

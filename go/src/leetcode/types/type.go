@@ -38,6 +38,20 @@ var (
 	}
 )
 
+type (
+	ListNode struct {
+		Value T
+		Next *ListNode
+	}
+
+	TreeNode struct {
+		Value T
+		Parent *TreeNode
+		Left *TreeNode
+		Right *TreeNode
+	}
+)
+
 // -------------------------------------------------------------------------------
 // integer
 
