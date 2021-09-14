@@ -30,36 +30,36 @@ func slidingPuzzle(board [][]int) int {
 	var target = "123450"
 	var visited = make(map[string]bool)
 
-	var tmp = []rune{}
+	bytes := []byte{}
 	for i := 0; i < len(board); i++ {
-		for j := 0; j < len(board[i]); j++ {
-			tmp = append(tmp, rune('0' + board[i][j]))
+		for j := 0; j < len(board[0]); j++ {
+			bytes = append(bytes, byte(board[i][j] + '0'))
 		}
 	}
+	start := string(bytes)
+	visited[start] = true
+	que := []string{start}
 	var step int
-	var start = string(tmp)
-	var que = []string{start}
 	for len(que) > 0 {
-		sz := len(que)
-		for ; sz > 0; sz-- {
-			cur := que[0]
+		for sz := len(que); sz > 0; sz -- {
+			s := que[0]
 			que = que[1:]
-			visited[cur] = true
-			if cur == target {
+
+			if s == target {
 				return step
 			}
-			i := strings.Index(cur, "0")
-			var tmp string
-			for _, nb := range neighbors[i] {
-				tmp = cur[:i] + string(cur[nb]) + cur[i+1:]
-				tmp = tmp[:nb] + string(cur[i]) + tmp[nb+1:]
+			i := strings.Index(s, "0")
+			for _, ni := range neighbors[i] {
+				bytes = []byte(s)
+				bytes[i], bytes[ni] = bytes[ni], bytes[i]
+				tmp := string(bytes)
 				if _, ok := visited[tmp]; ok {
 					continue
 				}
+				visited[tmp] = true
 				que = append(que, tmp)
 			}
 		}
-
 		step++
 	}
 

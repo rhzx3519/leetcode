@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/louzhenghao/Documents/Algorithm/leetcode/c++/1912. Design Movie Rental System.cpp
+vector
+-
+set
+-
+map
+-
+
+/Users/louzhenghao/Documents/Algorithm/leetcode/c++/main.cpp
+iostream
+-
+

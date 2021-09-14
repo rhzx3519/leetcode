@@ -46,4 +46,4 @@ if __name__ == '__main__':
     head = buildList([1,4,3,2,5,2])
     su = Solution()
     res = su.partition(head, 3)                     
-    print printList(res)
+    print(printList(res))
