@@ -1,0 +1,24 @@
+// 并查集
+
+```code
+
+var parent []int
+
+// find parent
+func find(x int) int{
+	if parent[x] != x {
+		return find(parent[x])
+	}
+	return parent[x]
+}
+
+// merge two elements
+func union(x, y int) {
+	px := find(x)
+	py := find(y)
+	if px != py {
+		parent[py] = px
+	}
+}
+
+```

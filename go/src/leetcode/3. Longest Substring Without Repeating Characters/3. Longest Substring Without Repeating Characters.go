@@ -2,24 +2,28 @@ package main
 
 import "fmt"
 
+/**
+https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+ */
 func lengthOfLongestSubstring(s string) int {
-	mem := make(map[int32]int)
-	ans := 0
-	last := 0
-	for i, ch := range s {
-		if _, ok := mem[ch]; ok {
-			if mem[ch] + 1 > last {
-				last = mem[ch] + 1
-			}
+	var l, last int
+	mapper := make(map[byte]int)
+	for i := range s {
+		c := s[i]
+		if j, ok := mapper[c]; ok {
+			last = max(j + 1, last)
 		}
-		//fmt.Println(i, last)
-
-		if i - last + 1 > ans {
-			ans = i - last + 1
-		}
-		mem[ch] = i
+		l = max(l, i - last + 1)
+		mapper[c] = i
 	}
-	return ans
+	return l
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 
 func main()  {
