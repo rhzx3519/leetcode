@@ -2,54 +2,42 @@ package main
 
 import "fmt"
 
+/**
+https://leetcode-cn.com/problems/count-number-of-teams/
+思路：统计i左右两侧比rating[i]大、或者比rating[i]小的个数
+time: O(n^2)
+space: O(1)
+ */
 func numTeams(rating []int) int {
+	var unit int
 	n := len(rating)
-	st := []int{}
-	asc := make([]int, n)
-	desc := make([]int, n)
-	for i := 0; i < n; i++ {
-		asc[i] = -1
-		desc[i] = -1
-	}
+	for j, m := range rating {
+		var l1, l2, r1, r2 int
 
-	for i := range rating {
-		for len(st) > 0 && rating[st[len(st)-1]] < rating[i] {
-			asc[st[len(st)-1]] = i
-			st = st[:len(st)-1]
+		for i := 0; i < j; i++ {
+			if rating[i] < m {
+				l1++
+			} else if rating[i] > m {
+				l2++
+			}
 		}
-		st = append(st, i)
-	}
-	fmt.Println(asc)
 
-	for i := n-1; i >= 0; i-- {
-		for len(st) > 0 && rating[st[len(st)-1]] > rating[i] {
-			desc[st[len(st)-1]] = i
-			st = st[:len(st)-1]
+		for k := j+1; k < n; k ++ {
+			if rating[k] < m {
+				r1++
+			} else if rating[k] > m {
+				r2++
+			}
 		}
-		st = append(st, i)
+
+		unit += l1*r2 + l2*r1
 	}
-
-	fmt.Println(desc)
-
-	var count int
-
-	// dp[i]表示以rating[i]结尾的递增序列的个数(递增序列的元素个数大于等于2)
-	// asc[i] != -1
-	for i := 0; i < n; i++ {
-		if asc[i] != -1 && asc[asc[i]] != -1 {
-			count++
-		}
-	}
-	for i := 0; i >= 0; i-- {
-		if desc[i] != -1 && desc[desc[i]] != -1 {
-			count++
-		}
-	}
-
-
-	return count
+	fmt.Println(unit)
+	return unit
 }
 
 func main() {
 	numTeams([]int{2,5,3,4,1})
+	numTeams([]int{2,1,3})
+	numTeams([]int{1,2,3,4})
 }

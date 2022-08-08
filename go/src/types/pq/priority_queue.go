@@ -51,16 +51,12 @@ type PriorityQueue struct {
 	a *Sortable
 }
 
-func New(list []T, comparator Comparator) *PriorityQueue {
+func NewPriorityQueue(comparator Comparator) *PriorityQueue {
 	que := &PriorityQueue{
 		a: &Sortable{
 			List: make([]T, 1),
 			Cmp: comparator,
 		},
-	}
-
-	for _, t := range list {
-		que.Offer(t)
 	}
 
 	return que

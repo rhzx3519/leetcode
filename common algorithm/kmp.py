@@ -37,9 +37,9 @@ class KMPSerach(object):
 		return nxt
 
 	def search(self, s, p):
-		nxt = [self.getNxt(p, x) for x in range(len(p))]
-		# nxt = self.buildNxt(p)
-		print nxt
+		# nxt = [self.getNxt(p, x) for x in range(len(p))]
+		nxt = self.buildNxt(p)
+		print (nxt)
 		tar = 0		# tar: 主串中将要匹配的位置
 		pos = 0		# pos: 模式串中将要匹配的位置
 		while tar < len(s):
@@ -57,6 +57,6 @@ class KMPSerach(object):
 
 if __name__ == '__main__':
 	s = 'abcdabaabacewda'
-	p = 'abaabac'
+	p = 'babab'
 	kmpSearch = KMPSerach()
 	kmpSearch.search(s, p)

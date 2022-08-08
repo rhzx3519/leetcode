@@ -10,5 +10,6 @@
     <content url="file://$USER_HOME$/go" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="kubernetes-in-action" />
   </component>
 </module>

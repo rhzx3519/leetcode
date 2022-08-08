@@ -38,3 +38,8 @@ func TestDrawTreeComplicated1(t *testing.T) {
 	arr := []types2.T{3,5,1,6,2,9,8,nil,nil,7,4,6}
 	DrawTree(arr)
 }
+
+func TestDrawTreeComplicated2(t *testing.T) {
+	arr := []types2.T{5,4,8,11,nil,13,4,7,2,nil,nil,5,1}
+	DrawTree(arr)
+}

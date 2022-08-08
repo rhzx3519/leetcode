@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/go.iml" filepath="$PROJECT_DIR$/.idea/go.iml" />
+      <module fileurl="file:///Volumes/Archive/Workbench/kubernetes-in-action/.idea/kubernetes-in-action.iml" filepath="/Volumes/Archive/Workbench/kubernetes-in-action/.idea/kubernetes-in-action.iml" />
     </modules>
   </component>
 </project>
