@@ -1,4 +1,39 @@
-package pq
+/**
+@author ZhengHao Lou
+Date    2023/01/09
+*/
+package main
+
+import "fmt"
+
+/**
+https://leetcode.cn/problems/maximal-score-after-applying-k-operations/
+*/
+func maxKelements(nums []int, k int) (tot int64) {
+	pq := NewPriorityQueue(IntComparator)
+	for _, x := range nums {
+		pq.Offer(x)
+	}
+	for ; k != 0; k-- {
+		x := pq.Poll().(int)
+		tot += int64(x)
+		pq.Offer(ceil(x, 3))
+	}
+	return
+}
+
+func ceil(x, d int) int {
+	c := x / d
+	if x%d != 0 {
+		c++
+	}
+	return c
+}
+
+func main() {
+	fmt.Println(maxKelements([]int{10, 10, 10, 10, 10}, 5))
+	fmt.Println(maxKelements([]int{1, 10, 3, 3, 3}, 3))
+}
 
 type (
 	T          interface{}
@@ -21,7 +56,7 @@ var (
 			return 0
 		}
 	}
-
+	
 	// return a reversed version of current Comparator function
 	Reversed = func(cmp Comparator) Comparator {
 		return func(x, y T) int {
@@ -57,7 +92,7 @@ func NewPriorityQueue(comparator Comparator) *PriorityQueue {
 			Cmp:  comparator,
 		},
 	}
-
+	
 	return que
 }
 

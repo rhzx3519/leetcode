@@ -1,4 +1,61 @@
-package pq
+/*
+*
+@author ZhengHao Lou
+Date    2022/12/13
+*/
+package main
+
+import "sort"
+
+/*
+*
+https://leetcode.cn/problems/maximum-number-of-points-from-grid-queries/
+*/
+var nxt = [][]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}
+
+func maxPoints(grid [][]int, queries []int) []int {
+	m, n := len(grid), len(grid[0])
+
+	var ans []int = make([]int, len(queries))
+	var id = make([]int, len(queries))
+	for i := range id {
+		id[i] = i
+	}
+	sort.Slice(id, func(i, j int) bool {
+		return queries[id[i]] < queries[id[j]]
+	})
+	que := NewPriorityQueue(func(x, y T) int {
+		a, b := x.([]int), y.([]int)
+		if a[2] < b[2] {
+			return 1
+		} else if a[2] > b[2] {
+			return -1
+		}
+		return 0
+	})
+	que.Offer([]int{0, 0, grid[0][0]})
+	grid[0][0] = 0
+
+	var c int
+	for _, i := range id {
+		x := queries[i]
+		for !que.IsEmpty() && que.Peek().([]int)[2] < x {
+			t := que.Poll().([]int)
+			c++
+			for _, d := range nxt {
+				ni, nj := t[0]+d[0], t[1]+d[1]
+				if ni < 0 || ni >= m || nj < 0 || nj >= n || grid[ni][nj] == 0 {
+					continue
+				}
+				que.Offer([]int{ni, nj, grid[ni][nj]})
+				grid[ni][nj] = 0
+			}
+		}
+		ans[i] = c
+	}
+
+	return ans
+}
 
 type (
 	T          interface{}

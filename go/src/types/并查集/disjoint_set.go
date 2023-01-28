@@ -20,8 +20,13 @@ func (d DisjoinSet) Find(x int) int {
 func (d DisjoinSet) Union(x, y int) bool {
 	px, py := d.Find(x), d.Find(y)
 	if px != py {
-		d.parent[py] = px
-		d.size[px] += d.size[py]
+		if d.size[px] > d.size[py] {
+			d.parent[py] = px
+			d.size[px] += d.size[py]
+		} else {
+			d.parent[px] = py
+			d.size[py] += d.size[px]
+		}
 		return true
 	}
 	return false
