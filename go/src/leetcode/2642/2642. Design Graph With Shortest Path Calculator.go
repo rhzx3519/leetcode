@@ -1,53 +1,43 @@
-/*
-*
-@author ZhengHao Lou
-Date    2021/12/03
-*/
-package 最短路径算法
+package main
 
 import (
 	"container/heap"
 	"math"
 )
 
+/*
+*
+https://leetcode.cn/problems/design-graph-with-shortest-path-calculator/
+*/
 type pair struct {
 	x, cost int
 }
+type Graph struct {
+	n   int
+	adj [][]pair
+}
 
-func dijkstra1(x, n int, adj map[int][][]int) []int {
-	dis := make([]int, n)
-	for i := range dis {
-		dis[i] = math.MaxInt32 >> 1
+func Constructor(n int, edges [][]int) Graph {
+	adj := make([][]pair, n)
+	for _, edge := range edges {
+		adj[edge[0]] = append(adj[edge[0]], pair{edge[1], edge[2]})
 	}
-	dis[x] = 0
-	que := NewPriorityQueue(func(x, y T) int {
-		a, b := x.([]int), y.([]int)
-		if a[1] < b[1] {
-			return 1
-		} else if a[1] > b[1] {
-			return -1
-		} else {
-			return 0
-		}
-	})
-	que.Offer([]int{x, 0})
-	for !que.IsEmpty() {
-		p := que.Poll().([]int)
-		i, cost := p[0], p[1]
-
-		if dis[i] < cost {
-			continue
-		}
-		for _, e := range adj[i] {
-			ni, cost := e[0], e[1]
-			if dis[ni] > dis[i]+cost {
-				dis[ni] = dis[i] + cost
-				que.Offer([]int{ni, dis[ni]})
-			}
-		}
+	return Graph{
+		n:   n,
+		adj: adj,
 	}
+}
 
-	return dis
+func (this *Graph) AddEdge(edge []int) {
+	this.adj[edge[0]] = append(this.adj[edge[0]], pair{edge[1], edge[2]})
+}
+
+func (this *Graph) ShortestPath(node1 int, node2 int) int {
+	dis := dijkstra(node1, node2, this.n, this.adj)
+	if dis[node2] == math.MaxInt32>>1 {
+		return -1
+	}
+	return dis[node2]
 }
 
 func dijkstra(from, to, n int, adj [][]pair) []int {
