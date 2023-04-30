@@ -1,4 +1,5 @@
-/**
+/*
+*
 @author ZhengHao Lou
 Date    2021/11/22
 */
@@ -34,7 +35,7 @@ func lowbit(x int) int {
 
 func NewFenwickTree(n int) *FenwickTree {
 	return &FenwickTree{
-		sums: make([]int, n + 1),
+		sums: make([]int, n+1),
 	}
 }
 
@@ -45,4 +46,3 @@ func main() {
 	fmt.Println(tree.Range(0)) // 0
 	fmt.Println(tree.Range(9)) // 5
 }
-
