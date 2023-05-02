@@ -1,4 +1,5 @@
-/**
+/*
+*
 @author ZhengHao Lou
 Date    2021/12/02
 */
@@ -9,13 +10,14 @@ import (
 	"math"
 )
 
-/**
+/*
+*
 https://leetcode-cn.com/problems/powerful-integers/
- */
+*/
 func powerfulIntegers(x int, y int, bound int) []int {
 	counter := make(map[int]int)
-	for i := 0; pow(x, i) <= bound - 1; i++ {
-		for j := 0; pow(y, j) <= bound - pow(x, i); j++ {
+	for i := 0; pow(x, i) <= bound-1; i++ {
+		for j := 0; pow(y, j) <= bound-pow(x, i); j++ {
 			t := pow(x, i) + pow(y, j)
 			counter[t]++
 			if y == 1 {
