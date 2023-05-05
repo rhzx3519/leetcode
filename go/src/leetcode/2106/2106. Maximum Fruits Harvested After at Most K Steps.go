@@ -23,15 +23,11 @@ func maxTotalFruits(fruits [][]int, startPos int, k int) (ans int) {
 	for x := k; x >= 0; x-- {
 		y := k - x<<1
 		l := sort.SearchInts(pos, startPos-x)
-		r := sort.Search(len(pos), func(i int) bool {
-			return pos[i] > startPos+y
-		})
+		r := sort.SearchInts(pos, startPos+y+1)
 		ans = max(ans, sums[r]-sums[l])
 
 		l = sort.SearchInts(pos, startPos-y)
-		r = sort.Search(len(pos), func(i int) bool {
-			return pos[i] > startPos+x
-		})
+		r = sort.SearchInts(pos, startPos+x+1)
 		ans = max(ans, sums[r]-sums[l])
 	}
 
