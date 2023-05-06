@@ -1,4 +1,5 @@
-/**
+/*
+*
 @author ZhengHao Lou
 Date    2022/11/16
 */
@@ -49,7 +50,6 @@ func isIdealPermutation(nums []int) bool {
 			tot += mergeSort(m+1, r)
 			tot += merge(l, m, r)
 		}
-
 		return tot
 	}
 
