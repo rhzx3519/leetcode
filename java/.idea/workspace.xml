@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,31 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5324c7b-5ca7-497e-ad8b-6a3d7eb7a48d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/378. Kth Smallest Element in a Sorted Matrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/OOM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/blockingqueue/MyBlockingQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/proxy/IDeveloper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/proxy/JavaDeveloper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/proxy/JavaDynamicProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/rpc/framework/RpcFramework.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/rpc/test/HelloService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/rpc/test/HelloServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/rpc/test/RpcConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/rpc/test/RpcProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/355. Design Twitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/355. Design Twitter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/466. Count The Repetitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/466. Count The Repetitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOM.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/OOM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/sort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/208. Implement Trie (Prefix Tree).py" beforeDir="false" afterPath="$PROJECT_DIR$/../python/208. Implement Trie (Prefix Tree).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/290. Word Pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/../python/290. Word Pattern.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/315. Count of Smaller Numbers After Self.py" beforeDir="false" afterPath="$PROJECT_DIR$/../python/315. Count of Smaller Numbers After Self.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/394. Decode String.py" beforeDir="false" afterPath="$PROJECT_DIR$/../python/394. Decode String.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/44. Wildcard Matching.py" beforeDir="false" afterPath="$PROJECT_DIR$/../python/44. Wildcard Matching.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,23 +36,25 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectId" id="1b3wGZaemAdPPELfJDi7DLLCgdU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/study" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="Groovy compiler" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/eren/Documents/Code/mysources/leetcode/java",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="study" />
@@ -84,6 +65,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/code" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -95,11 +77,12 @@
       <option name="presentableId" value="Default" />
       <updated>1587873990004</updated>
       <workItem from="1594953215512" duration="762000" />
+      <workItem from="1695946820359" duration="253000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -111,16 +94,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1440" y="-156" key="#Project_Structure" timestamp="1594953494144">
-      <screen x="1440" y="-232" width="1920" height="1080" />
-    </state>
-    <state x="0" y="63" key="#Project_Structure/0.0.1440.900/1440.-1080.1920.1080@0.0.1440.900" timestamp="1589376719804" />
-    <state x="1440" y="-156" key="#Project_Structure/0.0.1440.900/1440.-232.1920.1080@1440.-232.1920.1080" timestamp="1594953494144" />
-    <state x="1909" y="-53" key="SettingsEditor" timestamp="1594953641324">
-      <screen x="1440" y="-232" width="1920" height="1080" />
-    </state>
-    <state x="1909" y="-53" key="SettingsEditor/0.0.1440.900/1440.-232.1920.1080@1440.-232.1920.1080" timestamp="1594953641324" />
   </component>
 </project>
