@@ -1,4 +1,5 @@
-/**
+/*
+*
 @author ZhengHao Lou
 Date    2021/12/21
 */
@@ -10,7 +11,8 @@ import (
 	"strings"
 )
 
-var days_of_month = [13]int{0,31,28,31,30,31,30,31,31,30,31,30,31}
+var days_of_month = [13]int{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+
 func dayOfYear(date string) int {
 	var ans int
 	dates := strings.Split(date, "-")
@@ -31,7 +33,7 @@ func dayOfYear(date string) int {
 }
 
 func isLeapYear(year int) bool {
-	return year % 4 == 0 && !(year%100 == 0 && year%400 != 0)
+	return (year%4 == 0 && year%100 != 0) || year%400 == 0
 }
 
 func main() {
