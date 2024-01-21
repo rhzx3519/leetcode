@@ -1,6 +1,9 @@
 package main
 
-import "sort"
+import (
+	"sort"
+	"strings"
+)
 
 /*
 *
@@ -17,5 +20,6 @@ func minimumRemoval(beans []int) int64 {
 	for i, x := range beans {
 		tot = min(tot, s-int64(x)*int64(n-i))
 	}
+	strings.Split("a", string('a'))
 	return tot
 }
