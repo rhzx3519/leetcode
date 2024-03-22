@@ -1,8 +1,9 @@
 package code;
 
+import java.util.PriorityQueue;
 import java.util.Queue;
 
-class Solution {
+class Solution378 {
     public int kthSmallest(int[][] matrix, int k) {
         Queue<int[]> que = new PriorityQueue<>(
             (a, b) -> matrix[a[0]][a[1]] - matrix[b[0]][b[1]]
