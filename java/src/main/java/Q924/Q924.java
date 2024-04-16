@@ -1,5 +1,8 @@
 package Q924;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Q924 {
 }
 
