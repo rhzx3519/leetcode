@@ -8,7 +8,7 @@ public class Q2739 {
  */
 class Solution {
     public int distanceTraveled(int mainTank, int additionalTank) {
-        return (Math.min(mainTank/5, additionalTank) + mainTank) * 10;
+        return ( Math.min(Math.min(1, mainTank/5) + Math.max(0, mainTank-5)/4, additionalTank) + mainTank) * 10;
     }
 }
 
