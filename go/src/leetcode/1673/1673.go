@@ -13,5 +13,6 @@ func mostCompetitive(nums []int, k int) []int {
         }
         st = append(st, nums[i])
     }
+
     return st[:k]
 }
