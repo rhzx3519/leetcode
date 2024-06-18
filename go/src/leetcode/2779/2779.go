@@ -14,5 +14,6 @@ func maximumBeauty(nums []int, k int) (tot int) {
         }
         tot = max(tot, r-l+1)
     }
+
     return
 }
